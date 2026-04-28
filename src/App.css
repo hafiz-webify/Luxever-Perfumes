@@ -1,0 +1,69 @@
+:root {
+  --gold: #c5a059;
+  --dark: #0a0a0a;
+  --panel: #111;
+}
+
+body {
+  margin: 0; background: var(--dark); color: white;
+  font-family: 'Cinzel', serif; /* Use a serif font for that Luxever vibe */
+}
+
+/* Home Grid Styles */
+.navbar {
+  display: flex; justify-content: center; align-items: center;
+  padding: 40px; border-bottom: 1px solid #222; position: relative;
+}
+
+.logo { font-size: 2rem; letter-spacing: 8px; color: var(--gold); }
+.logo-small { font-size: 1.2rem; letter-spacing: 4px; color: var(--gold); }
+
+.hero-simple { text-align: center; padding: 60px 0; }
+.hero-simple h1 { font-weight: 300; letter-spacing: 3px; }
+
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px; padding: 0 5% 100px;
+}
+
+.clean-card {
+  position: relative; overflow: hidden; cursor: pointer;
+  border: 1px solid #1a1a1a; transition: 0.5s ease;
+}
+
+.clean-card img { width: 100%; transition: 0.8s ease; display: block; }
+.clean-card:hover img { transform: scale(1.05); filter: brightness(0.6); }
+
+.card-overlay {
+  position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  text-align: center; transform: translateY(20px); transition: 0.5s ease;
+}
+
+.clean-card:hover .card-overlay { transform: translateY(0); }
+.card-arabic { color: var(--gold); font-size: 1.1rem; display: block; }
+
+/* Product Page Styles */
+.back-link { position: absolute; left: 40px; background: none; border: none; color: #666; cursor: pointer; font-size: 0.8rem; }
+.details-wrapper { display: flex; min-height: 80vh; gap: 40px; padding: 40px 10%; }
+.image-panel { flex: 1.2; }
+.image-panel img { width: 100%; border-radius: 4px; border: 1px solid #222; }
+.content-panel { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+.arabic-large { font-size: 2.5rem; color: var(--gold); }
+.price-tag { font-size: 1.5rem; color: #888; margin: 20px 0; }
+
+.size-group label { display: block; font-size: 0.7rem; letter-spacing: 2px; color: #555; margin-bottom: 10px; }
+.btn-row { display: flex; gap: 10px; margin-bottom: 30px; }
+.size-opt { background: none; border: 1px solid #333; color: white; padding: 10px 30px; cursor: pointer; }
+.size-opt.active { border-color: var(--gold); background: var(--gold); color: black; }
+
+.checkout-box { display: flex; flex-direction: column; gap: 10px; }
+input, textarea { background: #1a1a1a; border: 1px solid #333; padding: 15px; color: white; border-radius: 0; }
+.wa-submit { background: var(--gold); border: none; padding: 18px; font-weight: bold; cursor: pointer; letter-spacing: 2px; }
+
+.social-footer { display: flex; border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; gap: 20px; }
+.s-link { text-decoration: none; color: #555; font-size: 0.7rem; letter-spacing: 1px; }
+.s-link:hover { color: var(--gold); }
+
+@media (max-width: 900px) { .details-wrapper { flex-direction: column; } .back-link { position: static; margin-bottom: 20px; } }

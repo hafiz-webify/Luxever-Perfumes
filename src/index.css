@@ -1,0 +1,193 @@
+/* =========================
+   ROOT THEME (LUXURY)
+========================= */
+:root {
+  --gold: #C5A059;
+  --gold-light: #e6c07b;
+
+  --bg-dark: #0f0f0f;
+  --bg-soft: #1a1a1a;
+  --bg-card: rgba(255, 255, 255, 0.05);
+
+  --text-main: #eaeaea;
+  --text-muted: #aaa;
+
+  --border: rgba(255, 255, 255, 0.1);
+
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.4);
+  --shadow-strong: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #000);
+  color: var(--text-main);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--gold);
+}
+
+p {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* =========================
+   LINKS
+========================= */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: var(--gold) !important;
+}
+
+/* =========================
+   BUTTONS (GLOBAL)
+========================= */
+.btn-gold {
+  background: linear-gradient(45deg, var(--gold), var(--gold-light));
+  color: #000;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-gold:hover {
+  opacity: 0.85;
+}
+
+/* =========================
+   CARD (GLASS EFFECT)
+========================= */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  transition: 0.4s;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-strong);
+}
+
+/* =========================
+   IMAGE EFFECTS
+========================= */
+.img-hover {
+  transition: 0.5s;
+}
+
+.img-hover:hover {
+  transform: scale(1.08);
+}
+
+/* =========================
+   SECTION SPACING
+========================= */
+.section {
+  padding: 80px 0;
+}
+
+/* =========================
+   GOLD DIVIDER
+========================= */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 40px 0;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  backdrop-filter: blur(10px);
+}
+
+.nav-link-custom {
+  color: #ccc !important;
+  margin-left: 20px;
+  position: relative;
+}
+
+.nav-link-custom:hover {
+  color: var(--gold) !important;
+}
+
+.nav-link-custom::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--gold);
+  transition: 0.3s;
+}
+
+.nav-link-custom:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   FORM INPUTS
+========================= */
+input, textarea {
+  background: transparent !important;
+  color: white !important;
+  border: 1px solid #555 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaa !important;
+}
+
+/* =========================
+   SCROLLBAR (PREMIUM TOUCH)
+========================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 10px;
+}
