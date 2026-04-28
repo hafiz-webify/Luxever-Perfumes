@@ -26,7 +26,8 @@ export default function Collection() {
 
         <Row>
           {products.map((product) => (
-            <Col key={product.id} md={4} lg={3} className="mb-5">
+            /* Yahan xs={6} add kiya hai taake mobile par 2 columns ban jayein */
+            <Col key={product.id} xs={6} md={4} lg={3} className="mb-4">
 
               <Card 
                 className="h-100 text-white border-0"
@@ -54,7 +55,7 @@ export default function Collection() {
                     variant="top" 
                     src={product.img}
                     style={{
-                      height: "250px",
+                      height: "200px", // Mobile ke liye height thodi adjust ki
                       objectFit: "cover",
                       transition: "0.4s"
                     }}
@@ -64,12 +65,12 @@ export default function Collection() {
                 </div>
 
                 {/* Body */}
-                <Card.Body className="text-center">
+                <Card.Body className="text-center p-2">
 
                   <p 
                     className="mb-1"
                     style={{
-                      fontSize: '0.75rem',
+                      fontSize: '0.65rem', // Mobile par text size chota kiya
                       color: '#C5A059',
                       letterSpacing: "2px"
                     }}
@@ -79,16 +80,17 @@ export default function Collection() {
 
                   <Card.Title style={{
                     fontFamily: 'Playfair Display, serif',
-                    fontWeight: "600"
+                    fontWeight: "600",
+                    fontSize: "0.9rem" // Mobile ke liye font size adjust kiya
                   }}>
                     {product.name}
                   </Card.Title>
 
-                  <Card.Text className="text-secondary">
+                  <Card.Text className="text-secondary" style={{ fontSize: "0.75rem" }}>
                     Starting from
                   </Card.Text>
 
-                  <h5 style={{ color: "#C5A059" }}>
+                  <h5 style={{ color: "#C5A059", fontSize: "1rem" }}>
                     PKR {product.prices["30ml"]}
                   </h5>
 
@@ -98,11 +100,11 @@ export default function Collection() {
                     style={{ textDecoration: 'none' }}
                   >
                     <Button 
-                      className="mt-3"
+                      className="mt-2"
                       style={{
                         borderRadius: "30px",
-                        padding: "6px 20px",
-                        fontSize: "0.8rem",
+                        padding: "5px 15px",
+                        fontSize: "0.7rem", // Button size chota kiya
                         fontWeight: "bold",
                         background: "linear-gradient(45deg, #C5A059, #e6c07b)",
                         border: "none",
@@ -112,7 +114,7 @@ export default function Collection() {
                       onMouseOver={e => e.currentTarget.style.opacity = "0.8"}
                       onMouseOut={e => e.currentTarget.style.opacity = "1"}
                     >
-                      VIEW DETAILS
+                      DETAILS
                     </Button>
                   </Link>
 

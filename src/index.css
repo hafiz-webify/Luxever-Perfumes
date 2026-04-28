@@ -1,193 +1,142 @@
 /* =========================
-   ROOT THEME (LUXURY)
+   VARIABLES & GLOBAL RESET
 ========================= */
 :root {
-  --gold: #C5A059;
-  --gold-light: #e6c07b;
-
-  --bg-dark: #0f0f0f;
-  --bg-soft: #1a1a1a;
-  --bg-card: rgba(255, 255, 255, 0.05);
-
-  --text-main: #eaeaea;
-  --text-muted: #aaa;
-
-  --border: rgba(255, 255, 255, 0.1);
-
-  --shadow-soft: 0 10px 30px rgba(0,0,0,0.4);
-  --shadow-strong: 0 20px 50px rgba(0,0,0,0.6);
+  --gold: #c5a059;
+  --dark: #0a0a0a;
+  --panel: #111;
 }
 
-/* =========================
-   GLOBAL RESET
-========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
 }
 
 body {
-  background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #000);
-  color: var(--text-main);
-  font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
+  background: var(--dark); 
+  color: white;
+  font-family: 'Cinzel', serif; 
+  overflow-x: hidden; 
 }
 
 /* =========================
-   TYPOGRAPHY
+   LAYOUT & NAVBAR
 ========================= */
-h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 1px;
-}
-
-h1 {
-  font-size: 3rem;
-}
-
-h2 {
-  font-size: 2rem;
-  color: var(--gold);
-}
-
-p {
-  color: var(--text-muted);
-  line-height: 1.7;
-}
-
-/* =========================
-   LINKS
-========================= */
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: 0.3s;
-}
-
-a:hover {
-  color: var(--gold) !important;
-}
-
-/* =========================
-   BUTTONS (GLOBAL)
-========================= */
-.btn-gold {
-  background: linear-gradient(45deg, var(--gold), var(--gold-light));
-  color: #000;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 30px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.btn-gold:hover {
-  opacity: 0.85;
-}
-
-/* =========================
-   CARD (GLASS EFFECT)
-========================= */
-.glass-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
-  transition: 0.4s;
-}
-
-.glass-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-strong);
-}
-
-/* =========================
-   IMAGE EFFECTS
-========================= */
-.img-hover {
-  transition: 0.5s;
-}
-
-.img-hover:hover {
-  transform: scale(1.08);
-}
-
-/* =========================
-   SECTION SPACING
-========================= */
-.section {
-  padding: 80px 0;
-}
-
-/* =========================
-   GOLD DIVIDER
-========================= */
-.divider {
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold), transparent);
-  margin: 40px 0;
-}
-
-/* =========================
-   NAVBAR
-========================= */
-.navbar {
-  backdrop-filter: blur(10px);
-}
-
-.nav-link-custom {
-  color: #ccc !important;
-  margin-left: 20px;
-  position: relative;
-}
-
-.nav-link-custom:hover {
-  color: var(--gold) !important;
-}
-
-.nav-link-custom::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background-color: var(--gold);
-  transition: 0.3s;
-}
-
-.nav-link-custom:hover::after {
+.main-container {
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  padding: 20px 20px; 
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3); 
+  background: rgba(0,0,0,0.6) !important;
+  backdrop-filter: blur(10px);
+}
+
+.logo { font-size: 2rem; letter-spacing: 8px; color: var(--gold); }
+.logo-small { font-size: 1.2rem; letter-spacing: 4px; color: var(--gold); }
+
+/* NAVBAR FIX: Black Pati Hatane ke liye */
+.navbar-collapse {
+  background: transparent !important; /* Laptop/Desktop par transparent */
+  box-shadow: none !important;
+  border: none !important;
 }
 
 /* =========================
-   FORM INPUTS
+   HOME PAGE (GRID)
 ========================= */
-input, textarea {
-  background: transparent !important;
-  color: white !important;
-  border: 1px solid #555 !important;
+.hero-simple { text-align: center; padding: 60px 20px; }
+.hero-simple h1 { font-weight: 300; letter-spacing: 3px; }
+
+.grid {
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px; 
+  padding: 0 5% 100px;
 }
 
-input::placeholder,
-textarea::placeholder {
-  color: #aaa !important;
+.clean-card {
+  position: relative; 
+  overflow: hidden; 
+  cursor: pointer;
+  border: 1px solid #1a1a1a; 
+  transition: 0.5s ease;
 }
+
+.clean-card img { width: 100%; height: auto; transition: 0.8s ease; display: block; }
+.clean-card:hover img { transform: scale(1.05); filter: brightness(0.6); }
+
+.card-overlay {
+  position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  text-align: center; transform: translateY(20px); transition: 0.5s ease;
+}
+
+.clean-card:hover .card-overlay { transform: translateY(0); }
+.card-arabic { color: var(--gold); font-size: 1.1rem; display: block; }
 
 /* =========================
-   SCROLLBAR (PREMIUM TOUCH)
+   PRODUCT PAGE
 ========================= */
-::-webkit-scrollbar {
-  width: 8px;
+.back-link { position: absolute; left: 40px; background: none; border: none; color: #666; cursor: pointer; font-size: 0.8rem; }
+.details-wrapper { display: flex; min-height: 80vh; gap: 40px; padding: 40px 10%; }
+.image-panel { flex: 1.2; }
+.image-panel img { width: 100%; border-radius: 4px; border: 1px solid #222; }
+.content-panel { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+.arabic-large { font-size: 2.5rem; color: var(--gold); }
+.price-tag { font-size: 1.5rem; color: #888; margin: 20px 0; }
+
+.size-group label { display: block; font-size: 0.7rem; letter-spacing: 2px; color: #555; margin-bottom: 10px; }
+.btn-row { display: flex; gap: 10px; margin-bottom: 30px; }
+.size-opt { background: none; border: 1px solid #333; color: white; padding: 10px 30px; cursor: pointer; }
+.size-opt.active { border-color: var(--gold); background: var(--gold); color: black; }
+
+.checkout-box { display: flex; flex-direction: column; gap: 10px; }
+input, textarea { background: #1a1a1a; border: 1px solid #333; padding: 15px; color: white; border-radius: 0; width: 100%; }
+.wa-submit { background: var(--gold); border: none; padding: 18px; font-weight: bold; cursor: pointer; letter-spacing: 2px; }
+
+.social-footer { display: flex; border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; gap: 20px; }
+.s-link { text-decoration: none; color: #555; font-size: 0.7rem; letter-spacing: 1px; }
+.s-link:hover { color: var(--gold); }
+
+/* =========================
+   MOBILE RESPONSIVE & FIXES
+========================= */
+/* Navbar Hamburger Icon fix */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(197, 160, 89, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
-::-webkit-scrollbar-track {
-  background: #111;
+@media (max-width: 991px) {
+  /* Mobile par menu ko dark background denge */
+  .navbar-collapse {
+    background: rgba(0, 0, 0, 0.95) !important; 
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  .navbar-nav { text-align: center; }
+  
+  .details-wrapper { 
+    flex-direction: column; 
+    padding: 20px;
+  }
+  .back-link { position: static; margin-bottom: 20px; display: block; }
+  .grid { padding: 0 20px 50px; }
+  .logo { font-size: 1.5rem; }
+  .arabic-large { font-size: 1.8rem; }
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--gold);
-  border-radius: 10px;
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
+  .btn-row { flex-wrap: wrap; }
+  .size-opt { flex: 1 1 40%; text-align: center; }
 }

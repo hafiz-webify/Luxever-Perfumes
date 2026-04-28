@@ -38,13 +38,16 @@ function Home() {
                 className="d-block w-100" 
                 src={slide.src} 
                 alt="slide"
-                style={{ height: "90vh", objectFit: "cover" }}
+                // Responsive height: mobile par 50vh, desktop par 90vh
+                style={{ height: "clamp(400px, 90vh, 900px)", objectFit: "cover" }}
               />
               <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "rgba(0,0,0,0.55)" }} />
 
               <Carousel.Caption>
-                <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" minHeight="80vh">
-                  <h1 style={{ fontFamily: "Playfair Display, serif", fontSize: "3rem", letterSpacing: "2px" }}>Luxury Fragrance</h1>
+                <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" minHeight="60vh">
+                  <h1 style={{ fontFamily: "Playfair Display, serif", fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "2px" }}>
+                    Luxury Fragrance
+                  </h1>
                   <p style={{ color: "#C5A059", letterSpacing: "3px" }}>ELEVATE YOUR PRESENCE</p>
                   <Stack spacing={2} direction="row" mt={3}>
                     <Link to="/collection" style={{ textDecoration: 'none' }}>
@@ -68,7 +71,8 @@ function Home() {
             "https://image.made-in-china.com/2f0j00kFebcABGQSoP/50ml-Fancy-Perfume-Bottle-for-Cosmetic-Square-Perfume-Oil-Original-Bottles-Packaging-Women-s-Perfume-Container.webp",
             "https://www.royalscotcrystal.com/media/catalog/product/p/e/perannrdcr_02_1000_1.jpg"
           ].map((item, i) => (
-            <Col md={6} key={i} className="mb-4">
+            // xs={12} add kiya hai taake mobile par full width ho
+            <Col xs={12} md={6} key={i} className="mb-4">
               <div style={{ position: "relative", overflow: "hidden", borderRadius: "20px" }}>
                 <img 
                   src={item} 
@@ -100,7 +104,8 @@ function Home() {
             "/images/misk.jpeg",
             "/images/Azaro.jpeg"
           ].map((item, i) => (
-            <Col md={4} key={i} className="mb-4">
+            // xs={12} add kiya hai taake mobile par 1 column dikhe
+            <Col xs={12} md={4} key={i} className="mb-4">
               <div style={{ position: "relative", overflow: "hidden", borderRadius: "20px" }}>
                 <img 
                   src={item} 

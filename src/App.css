@@ -1,69 +1,104 @@
+/* =========================
+   VARIABLES & RESET
+========================= */
 :root {
   --gold: #c5a059;
   --dark: #0a0a0a;
   --panel: #111;
 }
 
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html { scroll-behavior: smooth; }
+
 body {
-  margin: 0; background: var(--dark); color: white;
-  font-family: 'Cinzel', serif; /* Use a serif font for that Luxever vibe */
+  margin: 0; 
+  background: var(--dark); 
+  color: white;
+  font-family: 'Cinzel', serif;
+  overflow-x: hidden; /* Side-scrolling rokne ke liye */
 }
 
-/* Home Grid Styles */
+/* --- Layout Container --- */
+.main-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Hero Section Fixes (Matched with Home.jsx) --- */
+.hero-img {
+  height: 50vh !important; /* Mobile ke liye height kam */
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .hero-img {
+    height: 90vh !important; /* Laptop/Desktop ke liye full height */
+  }
+}
+
+/* --- Navbar (Fallback) --- */
 .navbar {
-  display: flex; justify-content: center; align-items: center;
-  padding: 40px; border-bottom: 1px solid #222; position: relative;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  padding: 40px 20px; 
+  border-bottom: 1px solid #222; 
 }
-
 .logo { font-size: 2rem; letter-spacing: 8px; color: var(--gold); }
-.logo-small { font-size: 1.2rem; letter-spacing: 4px; color: var(--gold); }
 
-.hero-simple { text-align: center; padding: 60px 0; }
-.hero-simple h1 { font-weight: 300; letter-spacing: 3px; }
-
+/* --- Grid & Cards --- */
 .grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px; padding: 0 5% 100px;
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px; 
+  padding: 0 20px 100px;
 }
 
-.clean-card {
-  position: relative; overflow: hidden; cursor: pointer;
-  border: 1px solid #1a1a1a; transition: 0.5s ease;
+.clean-card { 
+  position: relative; 
+  overflow: hidden; 
+  cursor: pointer; 
+  border: 1px solid #1a1a1a; 
 }
+.clean-card img { width: 100%; height: auto; display: block; transition: 0.8s ease; }
 
-.clean-card img { width: 100%; transition: 0.8s ease; display: block; }
-.clean-card:hover img { transform: scale(1.05); filter: brightness(0.6); }
-
-.card-overlay {
-  position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.9));
-  text-align: center; transform: translateY(20px); transition: 0.5s ease;
-}
-
-.clean-card:hover .card-overlay { transform: translateY(0); }
-.card-arabic { color: var(--gold); font-size: 1.1rem; display: block; }
-
-/* Product Page Styles */
-.back-link { position: absolute; left: 40px; background: none; border: none; color: #666; cursor: pointer; font-size: 0.8rem; }
-.details-wrapper { display: flex; min-height: 80vh; gap: 40px; padding: 40px 10%; }
+/* --- Product Details Page --- */
+.details-wrapper { display: flex; gap: 40px; padding: 40px 20px; min-height: 80vh; }
 .image-panel { flex: 1.2; }
-.image-panel img { width: 100%; border-radius: 4px; border: 1px solid #222; }
+.image-panel img { width: 100%; height: auto; border-radius: 4px; }
 .content-panel { flex: 1; display: flex; flex-direction: column; justify-content: center; }
 
 .arabic-large { font-size: 2.5rem; color: var(--gold); }
-.price-tag { font-size: 1.5rem; color: #888; margin: 20px 0; }
 
-.size-group label { display: block; font-size: 0.7rem; letter-spacing: 2px; color: #555; margin-bottom: 10px; }
-.btn-row { display: flex; gap: 10px; margin-bottom: 30px; }
-.size-opt { background: none; border: 1px solid #333; color: white; padding: 10px 30px; cursor: pointer; }
-.size-opt.active { border-color: var(--gold); background: var(--gold); color: black; }
+/* --- Buttons & Inputs --- */
+.size-opt { background: none; border: 1px solid #333; color: white; padding: 10px 20px; cursor: pointer; transition: 0.3s; }
+.size-opt:hover { border-color: var(--gold); }
+.wa-submit { width: 100%; background: var(--gold); border: none; padding: 18px; font-weight: bold; cursor: pointer; color: black; }
 
-.checkout-box { display: flex; flex-direction: column; gap: 10px; }
-input, textarea { background: #1a1a1a; border: 1px solid #333; padding: 15px; color: white; border-radius: 0; }
-.wa-submit { background: var(--gold); border: none; padding: 18px; font-weight: bold; cursor: pointer; letter-spacing: 2px; }
+/* --- MOBILE RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 768px) {
+  /* Font size adjustments */
+  .logo { font-size: 1.5rem; letter-spacing: 4px; }
+  .arabic-large { font-size: 1.8rem; }
+  
+  /* Layout Stacking */
+  .details-wrapper { flex-direction: column; gap: 20px; padding: 20px; }
+  
+  /* Buttons and Spacing */
+  .btn-row { flex-wrap: wrap; gap: 10px; }
+  .size-opt { flex: 1; text-align: center; }
+  
+  /* Navbar adjustments */
+  .navbar { padding: 20px; }
+}
 
-.social-footer { display: flex; border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; gap: 20px; }
-.s-link { text-decoration: none; color: #555; font-size: 0.7rem; letter-spacing: 1px; }
-.s-link:hover { color: var(--gold); }
-
-@media (max-width: 900px) { .details-wrapper { flex-direction: column; } .back-link { position: static; margin-bottom: 20px; } }
+@media (max-width: 480px) {
+  /* Very small devices */
+  .grid { padding: 0 10px 50px; }
+}
