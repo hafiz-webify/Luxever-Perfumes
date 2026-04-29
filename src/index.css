@@ -140,3 +140,16 @@ input, textarea { background: #1a1a1a; border: 1px solid #333; padding: 15px; co
   .btn-row { flex-wrap: wrap; }
   .size-opt { flex: 1 1 40%; text-align: center; }
 }
+/* =========================
+   FORM PLACEHOLDER FIX
+========================= */
+input::placeholder, 
+textarea::placeholder {
+  color: #888 !important; /* Placeholder ka color jo dark background par saaf dikhega */
+  opacity: 1; /* Firefox jaise browsers ke liye zaruri hai */
+}
+
+/* Agar aap chahte hain ke type karte waqt text ka color white rahe */
+input, textarea {
+  color: white !important;
+}
